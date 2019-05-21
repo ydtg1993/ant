@@ -3,16 +3,16 @@ namespace Ant;
 
 class Pipeline
 {
-    private $ip;
+    private $pattern;
     private $port;
     private $socket;
-    public function execute($data = null)
+    public function execute($config)
     {
-        $this->ip = $data['server'];
-        $this->port = $data['port'];
-        $this->socket = stream_socket_client("tcp://{$this->ip}:{$this->port}",$errno,$errstr,3);
+        $this->pattern = $config['tcp']['pattern'];
+        $this->port = $config['tcp']['port'];
+        $this->socket = stream_socket_client("tcp://localhost{$this->pattern}:{$this->port}",$errno,$errstr,3);
         if(!$this->socket){
-
+            return null;
         }
         stream_set_blocking($this->socket,true);
     }

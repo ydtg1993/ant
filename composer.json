@@ -1,0 +1,19 @@
+{
+    "name": "stream/ant",
+    "description": "php消息中间件",
+    "authors": [
+        {
+            "name": "Hikki",
+            "email": "946818508@qq.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ant\\": "src/"
+        }
+    }
+}

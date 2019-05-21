@@ -28,9 +28,8 @@ class Ant
         return $token;
     }
 
-    private function config()
+    public function send()
     {
-        $config = file_get_contents(dirname(Ant::ROOT_PATH) . DIRECTORY_SEPARATOR . 'ini.json');
-        self::$config = (array)json_decode($config, true);
+        
     }
 }

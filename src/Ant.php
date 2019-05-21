@@ -30,6 +30,6 @@ class Ant
 
     public function send()
     {
-        
+
     }
 }

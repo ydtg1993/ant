@@ -1,10 +1,10 @@
 {
   "tcp": {
-    "pattern": "/",
+    "pattern": "127.0.0.1",
     "port": "9303"
   },
   "websocket": {
-    "pattern": "/",
+    "pattern": "127.0.0.1",
     "port": "9333"
   }
 }

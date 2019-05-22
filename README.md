@@ -1,5 +1,3 @@
-<p align="center"><a href="" alt="JunkMan"><img src="https://github.com/ydtg1993/JunkMan/blob/master/src/image/iconfinder_Eye.png" width="400px"></a></p>   
-  
 ## About ant
 
 ant is a message middlware.

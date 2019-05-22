@@ -16,20 +16,43 @@ class Ant
      */
     public static $config;
 
+    /**
+     * @var
+     */
+    private $token;
+
+    /**
+     * @var Pipeline
+     */
+    private $pipeline;
+
+    /**
+     * Ant constructor.
+     */
     public function __construct()
     {
         $config = file_get_contents(dirname(Ant::ROOT_PATH) . DIRECTORY_SEPARATOR . 'ini.json');
         self::$config = (array)json_decode($config, true);
     }
 
-    public function prepare()
+    public function prepare($token = '')
     {
-        $token = Helper::randomCode();
-        return $token;
+        if (!$token) {
+            $this->token = Helper::randomCode();
+        }
+        $this->pipeline = new Pipeline(self::$config);
+        Structure::$information['event'] = Structure::REGISTER_EVENT;
+        Structure::$information['token'] = $this->token;
+        Structure::$information['message'] = "start at " . date("Y-m-d H:i:s");
+        $this->pipeline->write(Structure::$information);
+        return $this->token;
     }
 
-    public function send()
+    public function send($token, $event, $message)
     {
-
+        Structure::$information['event'] = $event;
+        Structure::$information['token'] = $token;
+        Structure::$information['message'] = $message;
+        return $this->pipeline->write(Structure::$information);
     }
 }

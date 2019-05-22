@@ -6,7 +6,8 @@ class Pipeline
     private $pattern;
     private $port;
     private $socket;
-    public function execute($config)
+
+    public function __construct($config)
     {
         $this->pattern = $config['tcp']['pattern'];
         $this->port = $config['tcp']['port'];

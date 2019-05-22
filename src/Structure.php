@@ -4,7 +4,7 @@
 namespace Ant;
 
 
-class structure
+class Structure
 {
     const NOTICE_EVENT = "notice";
     const BROADCAST_EVENT = "broadcast";

@@ -35,19 +35,30 @@ class Ant
         self::$config = (array)json_decode($config, true);
     }
 
-    public function prepare(&$token = '')
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function prepare()
     {
-        if (!$token) {
-            $token = Helper::randomCode();
+        if (!$this->token) {
+            $this->token = Helper::randomCode();
         }
         $this->pipeline = new Pipeline(self::$config);
         Structure::$information['event'] = Structure::REGISTER_EVENT;
-        Structure::$information['token'] = $token;
+        Structure::$information['token'] = $this->token;
         Structure::$information['message'] = "start at " . date("Y-m-d H:i:s");
         $this->pipeline->write(Structure::$information);
         return $this->token;
     }
 
+    /**
+     * @param $token
+     * @param $event
+     * @param $message
+     * @return Pipeline
+     * @throws \Exception
+     */
     public function send($token, $event, $message)
     {
         if(!$this->pipeline){
@@ -59,5 +70,16 @@ class Ant
         return $this->pipeline->write(Structure::$information);
     }
 
-
+    /**
+     * @param $token
+     * @throws \Exception
+     */
+    public function close($token)
+    {
+        Structure::$information['event'] = Structure::LOGOUT_EVENT;
+        Structure::$information['token'] = $token;
+        Structure::$information['message'] = "tcp closed";
+        $this->pipeline->write(Structure::$information);
+        $this->pipeline = null;
+    }
 }

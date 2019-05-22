@@ -11,7 +11,7 @@ class Pipeline
     {
         $this->pattern = $config['tcp']['pattern'];
         $this->port = $config['tcp']['port'];
-        $this->socket = stream_socket_client("tcp://localhost{$this->pattern}:{$this->port}",$errno,$errstr,3);
+        $this->socket = stream_socket_client("tcp://{$this->pattern}:{$this->port}",$errno,$errstr,3);
         if(!$this->socket){
             return null;
         }

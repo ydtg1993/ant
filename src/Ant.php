@@ -35,14 +35,14 @@ class Ant
         self::$config = (array)json_decode($config, true);
     }
 
-    public function prepare($token = '')
+    public function prepare(&$token = '')
     {
         if (!$token) {
-            $this->token = Helper::randomCode();
+            $token = Helper::randomCode();
         }
         $this->pipeline = new Pipeline(self::$config);
         Structure::$information['event'] = Structure::REGISTER_EVENT;
-        Structure::$information['token'] = $this->token;
+        Structure::$information['token'] = $token;
         Structure::$information['message'] = "start at " . date("Y-m-d H:i:s");
         $this->pipeline->write(Structure::$information);
         return $this->token;
@@ -50,9 +50,14 @@ class Ant
 
     public function send($token, $event, $message)
     {
+        if(!$this->pipeline){
+            $this->pipeline = new Pipeline(self::$config);
+        }
         Structure::$information['event'] = $event;
         Structure::$information['token'] = $token;
         Structure::$information['message'] = $message;
         return $this->pipeline->write(Structure::$information);
     }
+
+
 }

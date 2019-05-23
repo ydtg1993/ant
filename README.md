@@ -20,19 +20,23 @@ composer require stream/ant
 ### code
 create the Ant object to register a communication token then you could save this for client.
 whenever you could take this token to send message to client
+  
     $ant = new Ant();
     $token = $ant->prepare();
 
 
 send message to the client that it has the same token
+    
     $ant->send($token,Structure::NOTICE_EVENT,"this is a message form php");
 
 
 broadcast message 
+    
     $ant->send("",Structure::BROADCAST_EVENT,"this is a message form php");
 
 
 close a client that it has this token
+    
     $ant->close($token);
   
 

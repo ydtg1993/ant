@@ -17,7 +17,7 @@ composer require stream/ant
 
 `linux`    (YOUR_PATH)vendor/stream/junkman/anthill &
 
-### code
+### 3. code
 create the Ant object to register a communication token then you could save this for client.
 whenever you could take this token to send message to client
   

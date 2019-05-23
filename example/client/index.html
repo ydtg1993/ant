@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ant</title>
+    <link href="./source/swiper.min.css" rel="stylesheet">
+    <link href="./source/ant.css" rel="stylesheet">
+    <script src="./source/swiper.min.js"></script>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="component swiper-slide first-side">
+            <div class="one-box">
+                <div class="item1">
+                    <div class="content">
+                        <h1 style="text-align: left">Ant</h1>
+                        <div class="description">
+                            <p>这是一个消息中间件 服务于php</p>
+                            <p>anthill是通过golang开发的消息转推服务</p>
+                            <p>php通过tcp发送消息事件到转发器</p>
+                            <p>客户端用websocket建立长连接到转发器接受服务端来信</p>
+                        </div>
+                        <h3 style="text-align: left;margin-top: 30px">注意</h3>
+                        <div class="description">
+                            <p>此服务应用场景不适于php与客户端建立长连接通信</p>
+                            <p>php以短消息形式通知已建立长连接到anthill转发器的客户端</p>
+                            <p>当php服务端触发消息推送事件 带上相对的token推送到客户端</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item2"></div>
+            </div>
+        </div>
+        <div class="component swiper-slide second-side"></div>
+        <div class="component swiper-slide third-side"></div>
+    </div>
+    <div class="swiper-pagination" style="position: fixed"></div>
+</div>
+</body>
+
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction : 'vertical',
+        height : window.innerHeight,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable :true,
+        },
+    })
+
+    /*var ws = new WebSocket("ws://localhost:9333");
+
+    ws.onopen = function(evt) {
+        var data = {
+            "event":"register",
+            "token": "cc62870a2ec7a2e5618b86854f03bc7c",
+            "message":"ddd"
+        };
+        ws.send(JSON.stringify(data));
+    };
+
+    ws.onmessage = function(evt) {
+        console.log( "Received Message: " + evt.data);
+    };
+
+    ws.onclose = function(evt) {
+        console.log("Connection closed.");
+    };*/
+</script>
+</html>

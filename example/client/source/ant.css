@@ -1,0 +1,45 @@
+html {height: 100%;}
+body {margin:0!important; padding:0!important;height: 100%; font:12px AncientWar;overflow: hidden}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+.component {
+    width: 100%;
+    height: 100%;
+}
+
+.first-side{
+    background-image: url("home-banner.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.third-side{
+    background-image: url("tab-bg.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.one-box{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr
+}
+
+.one-box>.item1{
+    text-align: center;
+}
+
+.one-box .content{
+    width: 55%;
+    margin: 20% auto;
+}
+
+.description{
+    text-align: left;
+}
+
+.description p {
+    margin-top: 5px;
+}

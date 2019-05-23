@@ -20,7 +20,7 @@ windows
 
 linux    
 
-    (YOUR_PATH)vendor/stream/junkman/anthill &
+    (YOUR_PATH)vendor/stream/ant/anthill &
 
 ### 3. code
 create the Ant object to register a communication token then you could save this for client.

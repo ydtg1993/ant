@@ -1,6 +1,6 @@
 ## About ant
 
-ant is a message middlware.
+ant is a message middleware. php send message then middleware dispatch this message to websocket client.
 
 <table><thead><tr><th style="text-align:center;">Ant</th>
 <th style="text-align:left;">PHP</th>

@@ -74,6 +74,9 @@ class Ant
      */
     public function close($token)
     {
+        if(!$this->pipeline){
+            $this->pipeline = new Pipeline(self::$config);
+        }
         Structure::$information['event'] = "logout";
         Structure::$information['token'] = $token;
         Structure::$information['message'] = "tcp closed";

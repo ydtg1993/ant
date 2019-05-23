@@ -41,11 +41,9 @@ class Ant
      */
     public function prepare()
     {
-        if (!$this->token) {
-            $this->token = Helper::randomCode();
-        }
+        $this->token = Helper::randomCode();
         $this->pipeline = new Pipeline(self::$config);
-        Structure::$information['event'] = Structure::REGISTER_EVENT;
+        Structure::$information['event'] = "register";
         Structure::$information['token'] = $this->token;
         Structure::$information['message'] = "start at " . date("Y-m-d H:i:s");
         $this->pipeline->write(Structure::$information);
@@ -76,7 +74,7 @@ class Ant
      */
     public function close($token)
     {
-        Structure::$information['event'] = Structure::LOGOUT_EVENT;
+        Structure::$information['event'] = "logout";
         Structure::$information['token'] = $token;
         Structure::$information['message'] = "tcp closed";
         $this->pipeline->write(Structure::$information);

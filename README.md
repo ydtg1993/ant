@@ -18,18 +18,21 @@ composer require stream/ant
 `linux`    (YOUR_PATH)vendor/stream/junkman/anthill &
 
 ### code
-
+create the Ant object to register a communication token then you could save this for client.
+whenever you could take this token to send message to client
     $ant = new Ant();
     $token = $ant->prepare();
-create the Ant object to register a communication token then you could save this for client.
-whenever you could take this token to send message to client.
 
+
+send message to the client that it has the same token
     $ant->send($token,Structure::NOTICE_EVENT,"this is a message form php");
-send message to the client that it has the same token.
 
-    $ant->send("",Structure::BROADCAST_EVENT,"this is a message form php");
+
 broadcast message 
+    $ant->send("",Structure::BROADCAST_EVENT,"this is a message form php");
 
+
+close a client that it has this token
     $ant->close($token);
-close a client that it has this token.    
+  
 

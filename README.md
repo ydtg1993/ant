@@ -17,6 +17,18 @@ windows
 linux    
 
     (YOUR_PATH)vendor/stream/ant/anthill &
+    
+    
+    tips： 
+      the server should open firewall to enable port of 9303 9333, 
+      for tcp and websocket
+       
+    command:
+      iptables -A INPUT -p tcp --dport 9303 -j ACCEPT
+      iptables -A OUTPUT -p tcp --sport 9303 -j ACCEPT
+      iptables -A INPUT -p tcp --dport 9333 -j ACCEPT
+      iptables -A OUTPUT -p tcp --sport 9333 -j ACCEPT
+      service iptables save
 
 ### 3. code
 create the Ant object to register a communication token then you could save this for client.

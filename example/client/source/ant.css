@@ -100,3 +100,28 @@ img{vertical-align:top;border:0;}
     position: relative;
     top: -25px;
 }
+
+#monitor{
+    display: grid;
+    width: 700px;
+    margin: 10% auto;
+    border-radius: 7px;
+    grid-template-rows: 35px 400px;
+    background-color: #71777c;
+}
+input{
+    outline-style: none ;
+    border: 0px;
+}
+#nav{
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 35px;
+    border-bottom: 1px solid #e9e8e8
+}
+
+#screen{
+    background-color: #adf3b3;
+    padding: 10px;
+    overflow-y: auto;
+}

@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="item2">
-                    <div class="content" style="margin-left: 10px">
+                    <div class="content" style="margin-left: 10%">
                     <div class="card">
                         <div class="single-post">
                             <div class="blog-image"><img src="source/avatar-bg.jpg" alt="Ant"></div>
@@ -63,10 +63,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="item2"></div>
+                <div class="item2">
+                    <div class="content" style="margin-left: 10%">
+                        <div class="card">
+                            <div class="single-post">
+                                <div class="blog-image"><img src="source/avatar-bg.jpg" alt="Ant"></div>
+                                <a class="avatar" href="https://github.com/ydtg1993/ant"><img src="source/avatar.jpg" alt="star me"></a>
+                                <h4 class="title"><b>
+                                    如果这个小组件对您有帮助 请点击头像star我吧
+                                    欢迎提出你的建议
+                                </b></h4>
+                            </div><!-- single-post -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="component swiper-slide third-side"></div>
+        <div class="component swiper-slide third-side">
+            <div id="monitor">
+                <div id="nav">
+                    <input name="ip" placeholder="server ip" style="border-radius: 2px">
+                    <input name="port" placeholder="port" style="width: 45px;border-radius: 2px">
+                    <input name="token" placeholder="token" style="border-radius: 2px;">
+                </div>
+                <div id="screen"></div>
+            </div>
+        </div>
     </div>
     <div class="swiper-pagination" style="position: fixed"></div>
 </div>
@@ -81,7 +103,16 @@
             type: 'bullets',
             clickable :true,
         },
-    })
+    });
+
+    var websocket = {
+        init:function () {
+
+        },
+        connect:function () {
+
+        }
+    }
 
     /*var ws = new WebSocket("ws://localhost:9333");
 

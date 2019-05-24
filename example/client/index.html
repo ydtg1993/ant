@@ -80,13 +80,15 @@
             </div>
         </div>
         <div class="component swiper-slide third-side">
+            <h1 style="text-align: center;margin-top: 7%;">Websocket客户端</h1>
             <div id="monitor">
                 <div id="nav">
-                    <input name="ip" placeholder="server ip" style="border-radius: 2px">
-                    <input name="port" placeholder="port" style="width: 45px;border-radius: 2px">
-                    <input name="token" placeholder="token" style="border-radius: 2px;">
+                    <input name="ip" id="ip" placeholder="server ip" style="border-radius: 2px">
+                    <input name="port" id="port" placeholder="port" style="width: 45px;border-radius: 2px">
+                    <input name="token" id="token" placeholder="token" style="border-radius: 2px;">
+                    <button type="button" id="connect" style="border-radius: 2px">connect</button>
                 </div>
-                <div id="screen"></div>
+                <div id="screen" class="scroll"></div>
             </div>
         </div>
     </div>
@@ -103,34 +105,51 @@
             type: 'bullets',
             clickable :true,
         },
+        mousewheel: true
     });
 
     var websocket = {
         init:function () {
-
+            document.getElementById('connect').addEventListener('click',websocket.connect)
         },
         connect:function () {
+            var ip = document.getElementById('ip').value;
+            var port = parseInt(document.getElementById('port').value);
+            var token = document.getElementById('token').value;
 
+            if(!ip || port || token){
+                var content = "<p>Connection closed</p>";
+                document.getElementById('screen').innerHTML += content;
+                return
+            }
+
+            var ws = new WebSocket("ws://"+ip+":"+port);
+
+            ws.onopen = function(evt) {
+                var data = {
+                    "event":"register",
+                    "token": token,
+                    "message":"ddd"
+                };
+                ws.send(JSON.stringify(data));
+            };
+
+            ws.onmessage = function(evt) {
+                var content = "<p>from server : "+evt.data+"</p>";
+                document.getElementById('screen').innerHTML += content;
+            };
+
+            ws.onclose = function(evt) {
+                var content = "<p>Connection closed</p>";
+                document.getElementById('screen').innerHTML += content;
+            };
+
+            ws.onerror = function (ev) {
+                var content = "<p>Connection error</p>";
+                document.getElementById('screen').innerHTML += content;
+            }
         }
     }
-
-    /*var ws = new WebSocket("ws://localhost:9333");
-
-    ws.onopen = function(evt) {
-        var data = {
-            "event":"register",
-            "token": "cc62870a2ec7a2e5618b86854f03bc7c",
-            "message":"ddd"
-        };
-        ws.send(JSON.stringify(data));
-    };
-
-    ws.onmessage = function(evt) {
-        console.log( "Received Message: " + evt.data);
-    };
-
-    ws.onclose = function(evt) {
-        console.log("Connection closed.");
-    };*/
+    websocket.init();
 </script>
 </html>

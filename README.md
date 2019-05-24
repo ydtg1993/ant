@@ -31,7 +31,7 @@ linux
       iptables -A OUTPUT -p tcp --sport 9333 -j ACCEPT
       service iptables save
 
-### 3. code
+### 3. code in php
 create the Ant object to register a communication token then you could save this for client.
 whenever you could take this token to send message to client
   
@@ -53,7 +53,7 @@ close a client that it has this token
     
     $ant->close($token);
  
-### 3. websocket example
+### 3. websocket client example
 
     open this (YOUR_PATH)vendor/stream/ant/example/client/index.html
  

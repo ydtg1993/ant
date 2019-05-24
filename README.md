@@ -52,5 +52,9 @@ broadcast message
 close a client that it has this token
     
     $ant->close($token);
-  
+ 
+### 3. websocket example
+
+    open this (YOUR_PATH)vendor/stream/ant/example/client/index.html
+ 
 

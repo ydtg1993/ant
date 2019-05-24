@@ -27,12 +27,45 @@
                             <p>php以短消息形式通知已建立长连接到anthill转发器的客户端</p>
                             <p>当php服务端触发消息推送事件 带上相对的token推送到客户端</p>
                         </div>
+                        <img class="ant-logo" src="source/ant.png">
+                    </div>
+                </div>
+                <div class="item2">
+                    <div class="content" style="margin-left: 10px">
+                    <div class="card">
+                        <div class="single-post">
+                            <div class="blog-image"><img src="source/avatar-bg.jpg" alt="Ant"></div>
+                            <a class="avatar" href="https://github.com/ydtg1993"><img src="source/avatar.jpg" alt="star me"></a>
+                            <h4 class="title"><b>
+                                这是我在开发过程中突发想到的一个简单解决消息推送方式
+                                利用golang的高并发性能建立与客户端的长连接 部署方便快捷
+                                解决的我的问题 当然也有swoole这样的选择不过部署和学习成本
+                                也是需要做考量的呢
+                            </b></h4>
+                        </div><!-- single-post -->
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="component swiper-slide second-side">
+            <div class="one-box">
+                <div class="item1">
+                    <div class="content">
+                        <h1 style="text-align: left">流程图</h1>
+                        <div class="description">
+                            <img src="source/express.gif">
+                        </div>
+                        <h3 style="text-align: left;margin-top: 30px">注意</h3>
+                        <div class="description">
+                            <p>php通过tcp协议通知消息转推服务</p>
+                            <p>客户端通过websocket协议收发消息</p>
+                        </div>
                     </div>
                 </div>
                 <div class="item2"></div>
             </div>
         </div>
-        <div class="component swiper-slide second-side"></div>
         <div class="component swiper-slide third-side"></div>
     </div>
     <div class="swiper-pagination" style="position: fixed"></div>

@@ -118,7 +118,7 @@
             var token = document.getElementById('token').value;
 
             if(!ip || !port || !token){
-                var content = "<p>Connection closed</p>";
+                var content = "<p>Missing parameters !</p>";
                 document.getElementById('screen').innerHTML = content + document.getElementById('screen').innerHTML;
                 return
             }
@@ -142,7 +142,7 @@
             };
 
             ws.onerror = function (ev) {
-                var content = "<p>Connection error</p>";
+                var content = "<p>Connection error !</p>";
                 document.getElementById('screen').innerHTML = content + document.getElementById('screen').innerHTML;
             }
         }

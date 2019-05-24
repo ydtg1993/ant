@@ -117,15 +117,17 @@
             var port = parseInt(document.getElementById('port').value);
             var token = document.getElementById('token').value;
 
-            if(!ip || port || token){
+            if(!ip || !port || !token){
                 var content = "<p>Connection closed</p>";
-                document.getElementById('screen').innerHTML += content;
+                document.getElementById('screen').innerHTML = content + document.getElementById('screen').innerHTML;
                 return
             }
 
             var ws = new WebSocket("ws://"+ip+":"+port);
 
             ws.onopen = function(evt) {
+                var content = "<p>Connection connected</p>";
+                document.getElementById('screen').innerHTML = content + document.getElementById('screen').innerHTML;
                 var data = {
                     "event":"register",
                     "token": token,
@@ -136,17 +138,12 @@
 
             ws.onmessage = function(evt) {
                 var content = "<p>from server : "+evt.data+"</p>";
-                document.getElementById('screen').innerHTML += content;
-            };
-
-            ws.onclose = function(evt) {
-                var content = "<p>Connection closed</p>";
-                document.getElementById('screen').innerHTML += content;
+                document.getElementById('screen').innerHTML = content + document.getElementById('screen').innerHTML;
             };
 
             ws.onerror = function (ev) {
                 var content = "<p>Connection error</p>";
-                document.getElementById('screen').innerHTML += content;
+                document.getElementById('screen').innerHTML = content + document.getElementById('screen').innerHTML;
             }
         }
     }

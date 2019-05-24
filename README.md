@@ -39,7 +39,7 @@ whenever you could take this token to send message to client
     $token = $ant->prepare();
 
 
-send message to the client that it has the same token
+send message to the client whitch has the same token
     
     $ant->send($token,Structure::NOTICE_EVENT,"this is a message form php");
 

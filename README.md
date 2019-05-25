@@ -53,7 +53,7 @@ close a client that it has this token
     
     $ant->close($token);
  
-### 3. websocket client example
+### 4. websocket client example
 
     open this (YOUR_PATH)vendor/stream/ant/example/client/index.html
  

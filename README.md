@@ -1,6 +1,6 @@
 ## About ant
   
-    ant is a message middleware. php uses tcp to send message then middleware 
+    ant is a message middleware. php sends message by tcp then middleware 
     dispatches this message to websocket client.  
 
 ![example](https://github.com/ydtg1993/ant/blob/master/example/client/source/express.gif)

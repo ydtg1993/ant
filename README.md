@@ -24,12 +24,10 @@ linux
       the server should open firewall to enable port of 9303 9333, 
       for tcp and websocket
        
-    command:
-      iptables -A INPUT -p tcp --dport 9303 -j ACCEPT
-      iptables -A OUTPUT -p tcp --sport 9303 -j ACCEPT
-      iptables -A INPUT -p tcp --dport 9333 -j ACCEPT
-      iptables -A OUTPUT -p tcp --sport 9333 -j ACCEPT
-      service iptables save
+    command: 
+      firewall-cmd --zone=public --add-port=9303/tcp --permanent
+      firewall-cmd --zone=public --add-port=9333/tcp --permanent
+      firewall-cmd --reload
 
 ### 3. code in php
 create the Ant object to register a communication token then you could save this for client.
